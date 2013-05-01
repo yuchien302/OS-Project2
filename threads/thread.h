@@ -145,6 +145,8 @@ class Thread {
 		int GetRemainingExecutionTicks(void) { return RemainingExecutionTicks; }
 		void MyScheduling(char*ParameterFile);
 
+		void myPrint(void){ cout << priority << endl; }
+
 };
 
 // external function, dummy routine whose sole job is to call Thread::Print

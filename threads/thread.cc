@@ -451,6 +451,7 @@ Thread::MyScheduling(char*ParameterFile)
     pin >> a >> b;
     cout << "lalala I'm fucking cool" << endl;
     cout << a << " " << b << endl;
+    myPrint();
     return;
 }
 
