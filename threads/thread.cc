@@ -22,6 +22,10 @@
 #include "synch.h"
 #include "sysdep.h"
 
+// myHW2
+#include <iostream>
+#include <fstream>
+
 // this is put at the top of the execution stack, for detecting stack overflows
 const int STACK_FENCEPOST = 0xdedbeef;
 
