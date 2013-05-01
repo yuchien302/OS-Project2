@@ -439,6 +439,7 @@ Thread::SelfTest()
 void 
 Thread::MyScheduling(char*ParameterFile)
 {
+    ifstream pin(ParameterFile);
     cout << "lalala I'm fucking cool" << endl;
     return;
 }
