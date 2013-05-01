@@ -172,6 +172,11 @@ main(int argc, char **argv)
     bool threadTestFlag = false;
     bool consoleTestFlag = false;
     bool networkTestFlag = false;
+
+    //myHW2
+    bool SFlag = false;
+    char *SParameterFile = "";
+
 #ifndef FILESYS_STUB
     char *copyUnixFileName = NULL;    // UNIX file to be copied into Nachos
     char *copyNachosFileName = NULL;  // name of copied file in Nachos
@@ -207,6 +212,11 @@ main(int argc, char **argv)
 	else if (strcmp(argv[i], "-N") == 0) {
 	    networkTestFlag = TRUE;
 	}
+    else if (strcmp(argv[i], "-S") == 0) {
+        // myHW2
+        SFlag = true;
+        SParameterFile = argv[i + 1];
+    }
 #ifndef FILESYS_STUB
 	else if (strcmp(argv[i], "-cp") == 0) {
 	    ASSERT(i + 2 < argc);
@@ -263,6 +273,9 @@ main(int argc, char **argv)
     }
     if (networkTestFlag) {
       kernel->NetworkTest();   // two-machine test of the network
+    }
+    if (SFlag) {
+        kernel->currentThread->MyScheduling(SParameterFile);
     }
 
 #ifndef FILESYS_STUB
