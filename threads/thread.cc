@@ -434,3 +434,13 @@ Thread::SelfTest()
     SimpleThread(0);
 }
 
+
+
+void 
+Thread::MyScheduling(char*ParameterFile)
+{
+    return;
+}
+
+
+
