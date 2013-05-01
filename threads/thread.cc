@@ -445,7 +445,7 @@ Thread::MyScheduling(char*ParameterFile)
 {
     ifstream pin(ParameterFile);
     int a, b;
-    fin >> a >> b;
+    pin >> a >> b;
     cout << "lalala I'm fucking cool" << endl;
     cout << a << " " << b << endl;
     return;
