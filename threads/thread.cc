@@ -25,6 +25,7 @@
 // myHW2
 #include <iostream>
 #include <fstream>
+#include <climits>
 
 // this is put at the top of the execution stack, for detecting stack overflows
 const int STACK_FENCEPOST = 0xdedbeef;
@@ -49,6 +50,8 @@ Thread::Thread(char* threadName)
 					// of machine registers
     }
     space = NULL;
+
+    priority = INT_MAX;
 }
 
 //----------------------------------------------------------------------
