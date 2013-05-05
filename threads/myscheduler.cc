@@ -29,12 +29,12 @@
 int CompareThreads(Thread* x, Thread* y){
     if( (x->GetPriority()) < (y->GetPriority()) )
         return -1;
-    if( (x->GetPriority()) == (y->GetPriority()) )
+    else if( (x->GetPriority()) == (y->GetPriority()) )
         return 0;
-    if( (x->GetPriority()) > (y->GetPriority()) )
+    else if( (x->GetPriority()) > (y->GetPriority()) )
         return 1;
-    
-    return 0;
+
+    exit(0);
 }
 
 
