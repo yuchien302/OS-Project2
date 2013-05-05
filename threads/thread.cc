@@ -443,7 +443,7 @@ SimpleThread(int which)
 {
     while(kernel->currentThread->GetRemainingExecutionTicks()>0) {
         cout << kernel->currentThread->getName() ;
-        remain = kernel->currentThread->GetRemainingExecutionTicks();
+        int remain = kernel->currentThread->GetRemainingExecutionTicks();
         cout << " " << remain << endl;
         kernel->currentThread->SetRemainingExecutionTicks(remain-1);
         kernel->interrupt->OneTick();
