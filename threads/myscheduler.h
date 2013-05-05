@@ -13,6 +13,7 @@
 #include "list.h"
 #include "thread.h"
 #include "main.h"
+#include "machine.h"
 
 class SchedulerRoundRobin : public CallBackObj {
 
