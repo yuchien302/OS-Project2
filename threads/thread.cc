@@ -239,10 +239,11 @@ Thread::Yield ()
 
 	kernel->scheduler->ReadyToRun(this);
 	kernel->scheduler->Run(nextThread, FALSE);
-    kernel->scheduler->ScheduleInterrupt();
+    
 
     }
     (void) kernel->interrupt->SetLevel(oldLevel);
+    kernel->scheduler->ScheduleInterrupt();
 }
 
 //----------------------------------------------------------------------
