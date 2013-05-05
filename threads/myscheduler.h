@@ -12,7 +12,7 @@
 #include "copyright.h"
 #include "list.h"
 #include "thread.h"
-
+#include "callback.h"
 
 
 // The following class defines the myscheduler/dispatcher abstraction -- 
