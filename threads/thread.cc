@@ -428,7 +428,8 @@ SimpleThread(int which)
 {
     // while(kernel->currentThread->GetRemainingExecutionTicks()>0) {
         cout << "*** thread " << kernel->currentThread->getName() ;
-        cout << " priority" << kernel->currentThread->GetPriority() << endl;
+        cout << " priority " << kernel->currentThread->GetPriority() << endl;
+        kernel->currentThread->Yield();
     // }
 
 }
@@ -467,6 +468,10 @@ Thread::SelfTest()
     t = new Thread("3"); 
     t->SetPriority(30);
     t->Fork((VoidFunctionPtr) SimpleThread, (void *) 3);
+
+    t = new Thread("4"); 
+    t->SetPriority(50);
+    t->Fork((VoidFunctionPtr) SimpleThread, (void *) 4);
 
     kernel->currentThread->Yield();
 
