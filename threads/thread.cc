@@ -546,7 +546,7 @@ Thread::MyScheduling(char*ParameterFile)
         name = "";
         pin >> name >> priority >> times;
         cout << name << " " << priority << " " << times << endl;
-        t = new Thread( name ); 
+        t = new Thread( (char*) name.c_str() ); 
         cout << "FUCK" << endl;
         t->SetPriority(priority);
         // t->SetName(name);
