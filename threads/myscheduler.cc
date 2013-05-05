@@ -44,7 +44,7 @@ class SchedulerRoundRobin : public CallBackObj {
 
 void 
 MyScheduler::SetCallback(int timeslice){ 
-    callback = new SchedulerRoundRobin(timeslice, string(kernel->currentThread->getName())); 
+    callback = new SchedulerRoundRobin(timeslice, kernel->currentThread->getName()); 
 }
 
 
