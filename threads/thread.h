@@ -145,7 +145,11 @@ class Thread {
 		int GetRemainingExecutionTicks(void) { return RemainingExecutionTicks; }
 		void MyScheduling(char*ParameterFile);
 
-		void myPrint(void){ cout << name << ": "<< priority << endl; }
+		void myPrint(void){ 
+			if(strcmp(name, "main")==0 || strcmp(name, "ping")==0)
+				return;
+			cout << name << ": "<< priority << endl; 
+		}
 
 };
 
