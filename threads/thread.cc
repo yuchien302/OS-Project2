@@ -449,11 +449,12 @@ SimpleThread(int which)
 
         kernel->currentThread->SetRemainingExecutionTicks(remain-1);
         kernel->interrupt->OneTick();
+        kernel->currentThread->Yield();
         // cout << " priority " << kernel->currentThread->GetPriority() << endl;
         // kernel->currentThread->Yield();
     }
-    
-    kernel->currentThread->Yield();
+
+    // kernel->currentThread->Yield();
 }
 
 //----------------------------------------------------------------------
