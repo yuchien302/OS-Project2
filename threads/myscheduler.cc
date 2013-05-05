@@ -24,6 +24,7 @@
 #include "main.h"
 
 int CompareThreads(Thread* x, Thread* y){
+    cout << x->GetPriority() << " " << y->GetPriority();
     return ( (x->GetPriority()) > (y->GetPriority()) );
 }
 
