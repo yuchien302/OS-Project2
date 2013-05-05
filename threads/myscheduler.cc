@@ -66,7 +66,7 @@ MyScheduler::ReadyToRun (Thread *thread)
 
     thread->setStatus(READY);
     readyList->Insert(thread);
-    Print();
+    
 
 }
 
