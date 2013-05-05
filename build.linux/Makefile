@@ -267,6 +267,7 @@ THREAD_H = ../threads/alarm.h\
 	../threads/kernel.h\
 	../threads/main.h\
 	../threads/scheduler.h\
+	../threads/myscheduler.h\
 	../threads/switch.h\
 	../threads/synch.h\
 	../threads/synchlist.h\
@@ -276,11 +277,12 @@ THREAD_C = ../threads/alarm.cc\
 	../threads/kernel.cc\
 	../threads/main.cc\
 	../threads/scheduler.cc\
+	../threads/myscheduler.h\
 	../threads/synch.cc\
 	../threads/synchlist.cc\
 	../threads/thread.cc
 
-THREAD_O = alarm.o kernel.o main.o scheduler.o synch.o thread.o
+THREAD_O = alarm.o kernel.o main.o scheduler.o myscheduler.o synch.o thread.o
 
 USERPROG_H = ../userprog/addrspace.h\
 	../userprog/syscall.h\
