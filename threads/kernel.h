@@ -13,6 +13,7 @@
 #include "utility.h"
 #include "thread.h"
 #include "scheduler.h"
+#include "myscheduler.h"
 #include "interrupt.h"
 #include "stats.h"
 #include "alarm.h"
