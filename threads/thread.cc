@@ -240,9 +240,9 @@ Thread::Yield ()
         // cout << endl;
 
 	kernel->scheduler->ReadyToRun(this);
-    kernel->scheduler->ScheduleInterrupt(nextThread->getName());
-	kernel->scheduler->Run(nextThread, FALSE);
     
+	kernel->scheduler->Run(nextThread, FALSE);
+    kernel->scheduler->ScheduleInterrupt(nextThread->getName());
 
     }
     (void) kernel->interrupt->SetLevel(oldLevel);
