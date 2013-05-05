@@ -452,9 +452,9 @@ static void
 SimpleThread(int which)
 {
     while(kernel->currentThread->GetRemainingExecutionTicks()>0) {
-        cout << kernel->currentThread->getName() ;
+        // cout << kernel->currentThread->getName() ;
         int remain = kernel->currentThread->GetRemainingExecutionTicks();
-        cout << " " << remain << endl;
+        // cout << " " << remain << endl;
 
         kernel->currentThread->SetRemainingExecutionTicks(remain-1);
         kernel->interrupt->OneTick();
