@@ -226,7 +226,7 @@ Thread::Yield ()
     nextThread = kernel->scheduler->FindNextToRun();
 
     cout << "Next to run: ";
-    nextThread.Print();
+    nextThread->Print();
     cout << endl;
 
     if (nextThread != NULL) {
