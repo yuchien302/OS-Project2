@@ -210,7 +210,7 @@ Thread::Yield ()
 {
 
     //myHW2
-    // cout << "Call Thread::Yield\n";
+    cout << "Call Thread::Yield\n";
     // kernel->scheduler->Print();
     // cout << endl;
 
