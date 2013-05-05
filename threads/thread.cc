@@ -543,6 +543,7 @@ Thread::MyScheduling(char*ParameterFile)
         // cout << name << " " << priority << " " << times << endl;
         t = new Thread( (char *) name.c_str()); 
         t->SetPriority(priority);
+        t->SetName(name);
         t->SetRemainingExecutionTicks(times);
         t->Fork((VoidFunctionPtr) SimpleThread, (void *) i);
     }
