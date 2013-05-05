@@ -12,6 +12,7 @@
 #include "copyright.h"
 #include "list.h"
 #include "thread.h"
+#include "main.h"
 
 class SchedulerRoundRobin : public CallBackObj {
 
