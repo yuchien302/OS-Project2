@@ -236,10 +236,10 @@ Thread::Yield ()
         // cout << "Next to run: ";
         // nextThread->myPrint();
         // cout << endl;
-    
+
 	kernel->scheduler->ReadyToRun(this);
 	kernel->scheduler->Run(nextThread, FALSE);
-
+    kernel->scheduler->ScheduleInterrupt();
 
     }
     (void) kernel->interrupt->SetLevel(oldLevel);
