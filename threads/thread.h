@@ -144,7 +144,7 @@ class Thread {
 
 	public:
 		void SetPriority(int p) { priority = p; }
-		void SetName(string n) { name = n.c_str(); }
+		void SetName(string n) { name = (char *) n.c_str(); }
 		int GetPriority(void) { return priority; }
 		void SetRemainingExecutionTicks(int r) { RemainingExecutionTicks = r; }
 		int GetRemainingExecutionTicks(void) { return RemainingExecutionTicks; }
