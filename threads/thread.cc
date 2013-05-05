@@ -239,7 +239,7 @@ Thread::Yield ()
         // cout << endl;
 
 	kernel->scheduler->ReadyToRun(this);
-    kernel->scheduler->ScheduleInterrupt(nextThread->getName());
+    // kernel->scheduler->ScheduleInterrupt(nextThread->getName());
 	kernel->scheduler->Run(nextThread, FALSE);
     
 
