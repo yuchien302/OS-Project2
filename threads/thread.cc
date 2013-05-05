@@ -538,13 +538,14 @@ Thread::MyScheduling(char*ParameterFile)
     pin >> timeslice >> total;
 
     CallBackObj* callback = new SchedulerRoundRobin();
-    string name;
+    char* name;
     int priority, times;
     Thread* t;
     for(int i=0; i<total; i++){
+        name = "";
         pin >> name >> priority >> times;
         cout << name << " " << priority << " " << times << endl;
-        t = new Thread( (char*) name.c_str() ); 
+        t = new Thread( name ); 
         cout << "FUCK" << endl;
         t->SetPriority(priority);
         // t->SetName(name);
