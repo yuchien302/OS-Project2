@@ -163,6 +163,7 @@ Thread::Begin ()
     
     kernel->scheduler->CheckToBeDestroyed();
     kernel->interrupt->Enable();
+    kernel->scheduler->ScheduleInterrupt();
 }
 
 //----------------------------------------------------------------------
@@ -243,7 +244,7 @@ Thread::Yield ()
 
     }
     (void) kernel->interrupt->SetLevel(oldLevel);
-    kernel->scheduler->ScheduleInterrupt();
+
 }
 
 //----------------------------------------------------------------------
