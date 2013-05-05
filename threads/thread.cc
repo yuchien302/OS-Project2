@@ -238,7 +238,6 @@ Thread::Yield ()
         // cout << endl;
 	kernel->scheduler->ReadyToRun(this);
 	kernel->scheduler->Run(nextThread, FALSE);
-    kernel->scheduler->ScheduleInterrupt();
     }
     (void) kernel->interrupt->SetLevel(oldLevel);
 }
@@ -538,7 +537,7 @@ Thread::MyScheduling(char*ParameterFile)
     }
 
 
-    kernel->interrupt->Schedule(callback, 3, TimerInt);
+    kernel->scheduler->SetCallback(3);
     kernel->currentThread->Yield();
 
 

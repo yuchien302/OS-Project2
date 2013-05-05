@@ -12,24 +12,8 @@
 #include "copyright.h"
 #include "list.h"
 #include "thread.h"
-#include "main.h"
-#include "machine.h"
-#include "kernel.h"
 
-class SchedulerRoundRobin : public CallBackObj {
 
-    public:
-
-        SchedulerRoundRobin(int t){
-            timeslice = t;
-        }
-        ~SchedulerRoundRobin(){};
-        int timeslice;
-        void CallBack(){
-            cout << "this is callback" << endl;
-            kernel->currentThread->Yield();
-        }
-};
 
 // The following class defines the myscheduler/dispatcher abstraction -- 
 // the data structures and operations needed to keep track of which 
@@ -51,9 +35,8 @@ class MyScheduler {
     void CheckToBeDestroyed();// Check if thread that had been
     				// running needs to be deleted
     void Print();		// Print contents of ready list
-    void SetCallback(int timeslice){ callback = new CallBackObj(timeslice); }
-    void ScheduleInterrupt(){ if(callback!=NULL) kernel->interrupt->Schedule(callback, timeslice, TimerInt); 
-    }
+    void SetCallback(int timeslice);
+    void ScheduleInterrupt();
     // SelfTest for myscheduler is implemented in class Thread
     
 

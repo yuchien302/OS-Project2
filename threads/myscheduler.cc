@@ -23,6 +23,35 @@
 #include "myscheduler.h"
 #include "main.h"
 
+
+class SchedulerRoundRobin : public CallBackObj {
+
+    public:
+
+        SchedulerRoundRobin(int t){
+            timeslice = t;
+        }
+        ~SchedulerRoundRobin(){};
+        int timeslice;
+        void CallBack(){
+            cout << "this is callback" << endl;
+            kernel->currentThread->Yield();
+        }
+};
+
+void 
+MyScheduler::SetCallback(int timeslice){ 
+    callback = new CallBackObj(timeslice); 
+}
+
+
+void 
+MyScheduler::ScheduleInterrupt(){ 
+    if(callback!=NULL) 
+        kernel->interrupt->Schedule(callback, timeslice, TimerInt);
+}
+
+
 //      returns -1 if x < y
 //      returns 0 if x == y
 //      returns 1 if x > y
@@ -120,7 +149,7 @@ void
 MyScheduler::Run (Thread *nextThread, bool finishing)
 {
     Thread *oldThread = kernel->currentThread;
-    
+    ScheduleInterrupt();
     ASSERT(kernel->interrupt->getLevel() == IntOff);
 
     if (finishing) {	// mark that we need to delete current thread
