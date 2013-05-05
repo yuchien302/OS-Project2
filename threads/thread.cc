@@ -531,6 +531,7 @@ Thread::SelfTest()
 void 
 Thread::MyScheduling(char*ParameterFile)
 {
+    cout << "FUKvghieufvbweiulvbhiulwv" << endl;
     ifstream pin(ParameterFile);
     int total, timeslice;
     pin >> timeslice >> total;
