@@ -91,7 +91,7 @@ Thread *
 MyScheduler::FindNextToRun ()
 {
     ASSERT(kernel->interrupt->getLevel() == IntOff);
-readyList->Print();
+Print();
     if (readyList->IsEmpty()) {
 	return NULL;
     } else {
