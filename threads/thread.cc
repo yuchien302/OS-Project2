@@ -452,7 +452,8 @@ SimpleThread(int which)
         // cout << " priority " << kernel->currentThread->GetPriority() << endl;
         // kernel->currentThread->Yield();
     }
-
+    
+    kernel->currentThread->Yield();
 }
 
 //----------------------------------------------------------------------
@@ -540,7 +541,6 @@ Thread::MyScheduling(char*ParameterFile)
         pin >> name >> priority >> times;
         // cout << name << " " << priority << " " << times << endl;
         t = new Thread( (char *) name.c_str()); 
-        cout << t->getName() << "fuckyou\n";
         t->SetPriority(priority);
         t->SetRemainingExecutionTicks(times);
         t->Fork((VoidFunctionPtr) SimpleThread, (void *) i);
