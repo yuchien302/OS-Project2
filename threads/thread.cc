@@ -449,11 +449,11 @@ SimpleThread(int which)
 
         kernel->currentThread->SetRemainingExecutionTicks(remain-1);
         kernel->interrupt->OneTick();
-        kernel->currentThread->Yield();
+        
         // cout << " priority " << kernel->currentThread->GetPriority() << endl;
         // kernel->currentThread->Yield();
     }
-
+    // kernel->currentThread->Yield();
     // kernel->currentThread->Yield();
 }
 
@@ -486,7 +486,7 @@ public:
     int timeslice;
     void CallBack(){
         // cout << "this is callback" << endl;
-        kernel->interrupt->Schedule(this, timeslice, TimerInt);
+        kernel->interrupt->Schedule(this, 10, TimerInt);
     }
 };
 
@@ -541,15 +541,15 @@ Thread::MyScheduling(char*ParameterFile)
     for(int i=0; i<total; i++){
         pin >> name >> priority >> times;
         // cout << name << " " << priority << " " << times << endl;
-        t = new Thread( (char *) name.c_str()); 
+        t = new Thread( i+'A' ); 
         t->SetPriority(priority);
-        t->SetName(name);
+        // t->SetName(name);
         t->SetRemainingExecutionTicks(times);
         t->Fork((VoidFunctionPtr) SimpleThread, (void *) i);
     }
 
 
-    kernel->interrupt->Schedule(callback, 3, TimerInt);
+    kernel->interrupt->Schedule(callback, 10, TimerInt);
     kernel->currentThread->Yield();
 
 
