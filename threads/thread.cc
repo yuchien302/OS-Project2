@@ -442,6 +442,7 @@ Thread::RestoreUserState()
 static void
 SimpleThread(int which)
 {
+    cout << "=======FUCK  " <<  kernel->currentThread->getName() ;
     while(kernel->currentThread->GetRemainingExecutionTicks()>0) {
         cout << kernel->currentThread->getName() ;
         int remain = kernel->currentThread->GetRemainingExecutionTicks();
