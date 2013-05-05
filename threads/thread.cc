@@ -53,7 +53,7 @@ Thread::Thread(char* threadName)
     space = NULL;
 
     priority = INT_MAX;
-    RemainingExecutionTicks = 0;
+    RemainingExecutionTicks = 100;
 }
 
 //----------------------------------------------------------------------
