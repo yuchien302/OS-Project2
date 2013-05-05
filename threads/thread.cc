@@ -163,7 +163,7 @@ Thread::Begin ()
     // kernel->scheduler->ScheduleInterrupt();
     kernel->scheduler->CheckToBeDestroyed();
     kernel->interrupt->Enable();
-    
+
 }
 
 //----------------------------------------------------------------------
@@ -239,6 +239,7 @@ Thread::Yield ()
         // cout << endl;
 
 	kernel->scheduler->ReadyToRun(this);
+    kernel->scheduler->ScheduleInterrupt(nextThread->getName());
 	kernel->scheduler->Run(nextThread, FALSE);
     
 

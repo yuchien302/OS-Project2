@@ -45,9 +45,10 @@ MyScheduler::SetTimeSlice(int t){
 
 
 void 
-MyScheduler::ScheduleInterrupt(){
-    cout << "ScheduleInterrupt for " << kernel->currentThread->getName() << " timeslice= " << timeslice << endl;
-    callback = new SchedulerRoundRobin(kernel->currentThread->getName());
+MyScheduler::ScheduleInterrupt(char* threadName){
+    // kernel->currentThread->getName()
+    cout << "ScheduleInterrupt for " << threadName << " timeslice= " << timeslice << endl;
+    callback = new SchedulerRoundRobin(threadName);
     kernel->interrupt->Schedule(callback, timeslice, TimerInt);
 }
 
@@ -168,7 +169,7 @@ MyScheduler::Run (Thread *nextThread, bool finishing)
     kernel->currentThread = nextThread;  // switch to the next thread
     nextThread->setStatus(RUNNING);      // nextThread is now running
     
-    
+
     DEBUG(dbgThread, "Switching from: " << oldThread->getName() << " to: " << nextThread->getName());
     
     // This is a machine-dependent assembly language routine defined 
