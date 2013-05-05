@@ -146,7 +146,7 @@ class Thread {
 		void MyScheduling(char*ParameterFile);
 
 		void myPrint(void){ 
-			if(strcmp(name, "main")==0 || strcmp(name, "ping")==0)
+			if( (strcmp(name, "main")==0) || (strcmp(name, "ping")==0) )
 				return;
 			cout << name << ": "<< priority << endl; 
 		}
