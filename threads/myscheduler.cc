@@ -149,7 +149,7 @@ void
 MyScheduler::Run (Thread *nextThread, bool finishing)
 {
     Thread *oldThread = kernel->currentThread;
-    // ScheduleInterrupt();
+    ScheduleInterrupt();
     ASSERT(kernel->interrupt->getLevel() == IntOff);
 
     if (finishing) {	// mark that we need to delete current thread
@@ -193,7 +193,7 @@ MyScheduler::Run (Thread *nextThread, bool finishing)
 	oldThread->space->RestoreState();
     }
     
-    ScheduleInterrupt();
+    // ScheduleInterrupt();
 }
 
 //----------------------------------------------------------------------
