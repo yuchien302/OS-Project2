@@ -446,6 +446,7 @@ SimpleThread(int which)
         cout << kernel->currentThread->getName() ;
         int remain = kernel->currentThread->GetRemainingExecutionTicks();
         cout << " " << remain << endl;
+
         kernel->currentThread->SetRemainingExecutionTicks(remain-1);
         kernel->interrupt->OneTick();
         // cout << " priority " << kernel->currentThread->GetPriority() << endl;
@@ -482,6 +483,7 @@ public:
     ~SchedulerRoundRobin(){};
     int timeslice;
     void CallBack(){
+        cout << "this is callback" << endl;
         kernel->interrupt->Schedule(this, timeslice, TimerInt);
     }
 };
@@ -536,7 +538,7 @@ Thread::MyScheduling(char*ParameterFile)
     Thread* t;
     for(int i=0; i<total; i++){
         pin >> name >> priority >> times;
-        cout << name << " " << priority << " " << times << endl;
+        // cout << name << " " << priority << " " << times << endl;
         t = new Thread( (char *) name.c_str()); 
         t->SetPriority(priority);
         t->SetRemainingExecutionTicks(times);
