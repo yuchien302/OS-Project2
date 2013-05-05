@@ -44,7 +44,6 @@ Thread::Thread(char* threadName)
     string fuckyou = string(threadName);
     name = (char*) fuckyou.c_str();
 
-    cout << name << endl;
     stackTop = NULL;
     stack = NULL;
     status = JUST_CREATED;
