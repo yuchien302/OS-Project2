@@ -441,11 +441,15 @@ Thread::RestoreUserState()
 static void
 SimpleThread(int which)
 {
-    // while(kernel->currentThread->GetRemainingExecutionTicks()>0) {
-        cout << "*** thread " << kernel->currentThread->getName() ;
-        cout << " priority " << kernel->currentThread->GetPriority() << endl;
-        kernel->currentThread->Yield();
-    // }
+    while(kernel->currentThread->GetRemainingExecutionTicks()>0) {
+        cout << kernel->currentThread->getName() ;
+        remain = kernel->currentThread->GetRemainingExecutionTicks();
+        cout << " " << remain << endl;
+        kernel->currentThread->SetRemainingExecutionTicks(remain-1);
+        kernel->interrupt->OneTick();
+        // cout << " priority " << kernel->currentThread->GetPriority() << endl;
+        // kernel->currentThread->Yield();
+    }
 
 }
 
@@ -522,12 +526,22 @@ void
 Thread::MyScheduling(char*ParameterFile)
 {
     ifstream pin(ParameterFile);
-    int a, b, timeslice;
+    int total, timeslice;
+    pin >> timeslice >> total;
+
     CallBackObj* callback = new SchedulerRoundRobin();
-    // timeslice = 3;
-    pin >> a >> b;
-    cout << "lalala I'm fucking cool" << endl;
-    cout << a << " " << b << endl;
+    string name;
+    int priority, times;
+    Thread* t;
+    for(int i=0; i<total; i++){
+        pin >> name >> priority >> times;
+        t = new Thread(name.c_str()); 
+        t->SetPriority(priority);
+        t->SetRemainingExecutionTime(times);
+        t->Fork((VoidFunctionPtr) SimpleThread, (void *) i);
+    }
+
+
     kernel->interrupt->Schedule(callback, 3, TimerInt);
 
 
