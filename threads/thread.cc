@@ -454,15 +454,15 @@ Thread::SelfTest()
 {
     DEBUG(dbgThread, "Entering Thread::SelfTest");
 
-    t = new Thread(1); 
+    t = new Thread("1"); 
     t->setPriority(20);
     t->Fork((VoidFunctionPtr) SimpleThread, (void *) 1, (void *)20);
     
-    t = new Thread(2); 
+    t = new Thread("2"); 
     t->setPriority(10);
     t->Fork((VoidFunctionPtr) SimpleThread, (void *) 2, (void *)10);
 
-    t = new Thread(3); 
+    t = new Thread("3"); 
     t->setPriority(30);
     t->Fork((VoidFunctionPtr) SimpleThread, (void *) 3, (void *)30);
 
