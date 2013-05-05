@@ -277,7 +277,7 @@ THREAD_C = ../threads/alarm.cc\
 	../threads/kernel.cc\
 	../threads/main.cc\
 	../threads/scheduler.cc\
-	../threads/myscheduler.h\
+	../threads/myscheduler.cc\
 	../threads/synch.cc\
 	../threads/synchlist.cc\
 	../threads/thread.cc
