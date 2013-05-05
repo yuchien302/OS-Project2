@@ -12,7 +12,7 @@
 #include "debug.h"
 #include "utility.h"
 #include "thread.h"
-#include "scheduler.h"
+// #include "scheduler.h"
 #include "myscheduler.h"
 #include "interrupt.h"
 #include "stats.h"
@@ -46,7 +46,7 @@ class Kernel {
 // they're global variables used everywhere.
 
     Thread *currentThread;	// the thread holding the CPU
-    Scheduler *scheduler;	// the ready list
+    MyScheduler *scheduler;	// the ready list
     Interrupt *interrupt;	// interrupt status
     Statistics *stats;		// performance metrics
     Alarm *alarm;		// the software alarm clock    
