@@ -14,6 +14,7 @@
 #include "thread.h"
 #include "main.h"
 #include "machine.h"
+#include "kernel.h"
 
 class SchedulerRoundRobin : public CallBackObj {
 
