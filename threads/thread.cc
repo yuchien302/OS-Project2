@@ -537,7 +537,7 @@ Thread::MyScheduling(char*ParameterFile)
     }
 
 
-    kernel->scheduler->SetCallback(3);
+    kernel->scheduler->SetTimeSlice(3);
     kernel->currentThread->Yield();
 
 
