@@ -210,9 +210,9 @@ Thread::Yield ()
 {
 
     //myHW2
-    cout << "Call Thread::Yield\n";
-    kernel->scheduler->Print();
-    cout << endl;
+    // cout << "Call Thread::Yield\n";
+    // kernel->scheduler->Print();
+    // cout << endl;
 
     Thread *nextThread;
     IntStatus oldLevel = kernel->interrupt->SetLevel(IntOff);
