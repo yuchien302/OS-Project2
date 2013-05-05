@@ -539,7 +539,8 @@ Thread::MyScheduling(char*ParameterFile)
     for(int i=0; i<total; i++){
         pin >> name >> priority >> times;
         // cout << name << " " << priority << " " << times << endl;
-        t = new Thread( "F" ); 
+        t = new Thread( (char *) name.c_str()); 
+        cout << t->getName() << "fuckyou\n";
         t->SetPriority(priority);
         t->SetRemainingExecutionTicks(times);
         t->Fork((VoidFunctionPtr) SimpleThread, (void *) i);
