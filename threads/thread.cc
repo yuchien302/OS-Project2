@@ -53,7 +53,7 @@ Thread::Thread(char* threadName)
     space = NULL;
 
     priority = INT_MAX;
-    RemainingExecutionTicks = 100;
+    // RemainingExecutionTicks = 100;
 }
 
 //----------------------------------------------------------------------
@@ -545,10 +545,10 @@ Thread::MyScheduling(char*ParameterFile)
 
 
     kernel->interrupt->Schedule(callback, 3, TimerInt);
+    kernel->currentThread->Yield();
 
 
-
-    myPrint();
+    // myPrint();
     return;
 }
 
