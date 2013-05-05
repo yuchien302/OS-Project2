@@ -31,7 +31,7 @@
 
 MyScheduler::MyScheduler()
 { 
-    readyList = new List<Thread *>; 
+    readyList = new SortedList<Thread *>; 
     toBeDestroyed = NULL;
 } 
 
