@@ -103,7 +103,11 @@ class Thread {
 		void CheckOverflow();   	// Check if thread stack has overflowed
 		void setStatus(ThreadStatus st) { status = st; }
 		char* getName() { return (name); }
-		void Print() { cout << "name: " << name  << ", priority: " << priority << endl; }
+		void Print() { 
+			if( priority == 2147483647 )
+				return;
+			cout << "name: " << name  << ", priority: " << priority << endl; 
+		}
 		void SelfTest();		// test whether thread impl is working
 
 	private:
@@ -146,8 +150,6 @@ class Thread {
 		void MyScheduling(char*ParameterFile);
 
 		void myPrint(void){ 
-			if( priority == 2147483647 )
-				return;
 			cout << name << ": "<< priority << endl; 
 		}
 
