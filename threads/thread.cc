@@ -455,15 +455,15 @@ Thread::SelfTest()
     DEBUG(dbgThread, "Entering Thread::SelfTest");
 
     Thread* t = new Thread("1"); 
-    t->setPriority(20);
+    t->SetPriority(20);
     t->Fork((VoidFunctionPtr) SimpleThread, (void *) 1);
     
     t = new Thread("2"); 
-    t->setPriority(10);
+    t->SetPriority(10);
     t->Fork((VoidFunctionPtr) SimpleThread, (void *) 2);
 
     t = new Thread("3"); 
-    t->setPriority(30);
+    t->SetPriority(30);
     t->Fork((VoidFunctionPtr) SimpleThread, (void *) 3);
 
     kernel->currentThread->Yield();
