@@ -149,7 +149,7 @@ void
 MyScheduler::Run (Thread *nextThread, bool finishing)
 {
     Thread *oldThread = kernel->currentThread;
-    ScheduleInterrupt();
+    
     ASSERT(kernel->interrupt->getLevel() == IntOff);
 
     if (finishing) {	// mark that we need to delete current thread
@@ -167,6 +167,7 @@ MyScheduler::Run (Thread *nextThread, bool finishing)
 
     kernel->currentThread = nextThread;  // switch to the next thread
     nextThread->setStatus(RUNNING);      // nextThread is now running
+    ScheduleInterrupt();
     
     DEBUG(dbgThread, "Switching from: " << oldThread->getName() << " to: " << nextThread->getName());
     
@@ -192,7 +193,7 @@ MyScheduler::Run (Thread *nextThread, bool finishing)
         oldThread->RestoreUserState();     // to restore, do it.
 	oldThread->space->RestoreState();
     }
-    
+
     // ScheduleInterrupt();
 }
 
