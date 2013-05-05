@@ -48,6 +48,7 @@ MyScheduler::MyScheduler()
 { 
     readyList = new SortedList<Thread *>( CompareThreads ); 
     toBeDestroyed = NULL;
+    callback = NULL;
 } 
 
 //----------------------------------------------------------------------
@@ -94,7 +95,6 @@ MyScheduler::FindNextToRun ()
     if (readyList->IsEmpty()) {
 	return NULL;
     } else {
-        kernel->interrupt->Schedule(this, 3, TimerInt);
     	return readyList->RemoveFront();
     }
 }

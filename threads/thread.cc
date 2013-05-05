@@ -238,6 +238,7 @@ Thread::Yield ()
         // cout << endl;
 	kernel->scheduler->ReadyToRun(this);
 	kernel->scheduler->Run(nextThread, FALSE);
+    kernel->scheduler->ScheduleInterrupt();
     }
     (void) kernel->interrupt->SetLevel(oldLevel);
 }
@@ -478,21 +479,7 @@ SimpleThread(int which)
 //     SimpleThread(0);
 // }
 
-class SchedulerRoundRobin : public CallBackObj {
 
-public:
-
-    SchedulerRoundRobin(){
-        timeslice = 3;
-    }
-    ~SchedulerRoundRobin(){};
-    int timeslice;
-    void CallBack(){
-        cout << "this is callback" << endl;
-        kernel->currentThread->Yield();
-        
-    }
-};
 
 void
 Thread::SelfTest()
@@ -544,11 +531,8 @@ Thread::MyScheduling(char*ParameterFile)
     Thread* t;
     for(int i=0; i<total; i++){
         pin >> name >> priority >> times;
-        // cout << name << " " << priority << " " << times << endl;
         t = new Thread( name ); 
-        // cout << "FUCK" << endl;
         t->SetPriority(priority);
-        // t->SetName(name);
         t->SetRemainingExecutionTicks(times);
         t->Fork((VoidFunctionPtr) SimpleThread, (void *) i);
     }
