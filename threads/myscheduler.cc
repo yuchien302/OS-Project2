@@ -181,7 +181,7 @@ MyScheduler::CheckToBeDestroyed()
 void
 MyScheduler::Print()
 {
-    cout << "Ready list contents:\n";
+    // cout << "Ready list contents:\n";
     readyList->Apply(ThreadPrint);
     cout << endl;
 
