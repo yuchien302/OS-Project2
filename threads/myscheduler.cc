@@ -28,20 +28,23 @@ class SchedulerRoundRobin : public CallBackObj {
 
     public:
 
-        SchedulerRoundRobin(int t){
+        SchedulerRoundRobin(int t, char* threadName){
             timeslice = t;
+            name = string(threadName);
         }
         ~SchedulerRoundRobin(){};
         int timeslice;
+        string name;
         void CallBack(){
             cout << "this is callback" << endl;
-            kernel->currentThread->Yield();
+            if(name = string(kernel->currentThread->getName()) )
+                kernel->currentThread->Yield();
         }
 };
 
 void 
 MyScheduler::SetCallback(int timeslice){ 
-    callback = new CallBackObj(timeslice); 
+    callback = new SchedulerRoundRobin(timeslice, string(kernel->currentThread->getName())); 
 }
 
 
