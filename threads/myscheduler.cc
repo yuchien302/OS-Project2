@@ -1,4 +1,4 @@
-// myscheduler.cc 
+// myscheduler.cc ^^
 //	Routines to choose the next thread to run, and to dispatch to
 //	that thread.
 //
