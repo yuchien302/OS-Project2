@@ -488,8 +488,8 @@ public:
     ~SchedulerRoundRobin(){};
     int timeslice;
     void CallBack(){
-        // cout << "this is callback" << endl;
-        kernel->interrupt->Schedule(this, 1, TimerInt);
+        cout << "this is callback" << endl;
+        kernel->interrupt->Schedule(this, 3, TimerInt);
     }
 };
 
@@ -553,7 +553,7 @@ Thread::MyScheduling(char*ParameterFile)
     }
 
 
-    kernel->interrupt->Schedule(callback, 1, TimerInt);
+    kernel->interrupt->Schedule(callback, 3, TimerInt);
     kernel->currentThread->Yield();
 
 
