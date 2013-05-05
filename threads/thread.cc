@@ -229,7 +229,7 @@ Thread::Yield ()
 
     if (nextThread != NULL) {
         cout << "Next to run: ";
-        nextThread->Print();
+        nextThread->myPrint();
         cout << endl;
 	kernel->scheduler->ReadyToRun(this);
 	kernel->scheduler->Run(nextThread, FALSE);
