@@ -67,8 +67,7 @@ MyScheduler::ReadyToRun (Thread *thread)
     thread->setStatus(READY);
     readyList->Insert(thread);
     Print();
-    cout << endl;
-    cout << endl;
+
 }
 
 //----------------------------------------------------------------------
@@ -185,5 +184,5 @@ MyScheduler::Print()
     cout << "Ready list contents:\n";
     readyList->Apply(ThreadPrint);
     cout << endl;
-    cout << endl;
+
 }
