@@ -23,6 +23,12 @@
 #include "myscheduler.h"
 #include "main.h"
 
+int
+MyScheduler::CompareThreads(Thread* x, Thread* y){
+    return ( (x->priority) > (y->priority) );
+}
+
+
 //----------------------------------------------------------------------
 // MyScheduler::MyScheduler
 // 	Initialize the list of ready but not running threads.
@@ -31,7 +37,7 @@
 
 MyScheduler::MyScheduler()
 { 
-    readyList = new SortedList<Thread *>; 
+    readyList = new SortedList<Thread *>(CompareThreads); 
     toBeDestroyed = NULL;
 } 
 
@@ -60,7 +66,7 @@ MyScheduler::ReadyToRun (Thread *thread)
     DEBUG(dbgThread, "Putting thread on ready list: " << thread->getName());
 
     thread->setStatus(READY);
-    readyList->Append(thread);
+    readyList->Insert(thread);
 }
 
 //----------------------------------------------------------------------

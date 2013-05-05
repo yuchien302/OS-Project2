@@ -34,6 +34,10 @@ class MyScheduler {
     
     // SelfTest for myscheduler is implemented in class Thread
     
+
+    // MyHW2
+    int CompareThreads(Thread* x, Thread* y);
+
   private:
     SortedList<Thread *> *readyList;  // queue of threads that are ready to run,
 				// but not running
