@@ -23,8 +23,7 @@
 #include "myscheduler.h"
 #include "main.h"
 
-int
-MyScheduler::CompareThreads(Thread* x, Thread* y){
+int CompareThreads(Thread* x, Thread* y){
     return ( (x->priority) > (y->priority) );
 }
 
@@ -37,7 +36,7 @@ MyScheduler::CompareThreads(Thread* x, Thread* y){
 
 MyScheduler::MyScheduler()
 { 
-    readyList = new SortedList<Thread *>( &(MyScheduler::CompareThreads) ); 
+    readyList = new SortedList<Thread *>( CompareThreads ); 
     toBeDestroyed = NULL;
 } 
 

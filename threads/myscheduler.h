@@ -36,7 +36,7 @@ class MyScheduler {
     
 
     // MyHW2
-    int CompareThreads(Thread* x, Thread* y);
+    // int CompareThreads(Thread* x, Thread* y);
 
   private:
     SortedList<Thread *> *readyList;  // queue of threads that are ready to run,
