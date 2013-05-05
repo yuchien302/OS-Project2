@@ -27,7 +27,6 @@
 //      returns 0 if x == y
 //      returns 1 if x > y
 int CompareThreads(Thread* x, Thread* y){
-    cout << x->GetPriority() << " " << y->GetPriority() << endl;
     if( (x->GetPriority()) < (y->GetPriority()) )
         return -1;
     if( (x->GetPriority()) == (y->GetPriority()) )
