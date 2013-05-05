@@ -183,6 +183,6 @@ MyScheduler::Print()
 {
     // cout << "Ready list contents:\n";
     readyList->Apply(ThreadPrint);
-    cout << endl;
+    // cout << endl;
 
 }
