@@ -487,6 +487,14 @@ Thread::SelfTest()
     t->SetPriority(50);
     t->Fork((VoidFunctionPtr) SimpleThread, (void *) 4);
 
+    t = new Thread("5"); 
+    t->SetPriority(5);
+    t->Fork((VoidFunctionPtr) SimpleThread, (void *) 5);
+
+    t = new Thread("6"); 
+    t->SetPriority(10);
+    t->Fork((VoidFunctionPtr) SimpleThread, (void *) 6);
+
     kernel->currentThread->Yield();
 
 }
