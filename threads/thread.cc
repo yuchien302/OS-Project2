@@ -489,7 +489,8 @@ public:
     int timeslice;
     void CallBack(){
         cout << "this is callback" << endl;
-        kernel->interrupt->Schedule(this, 3, TimerInt);
+        kernel->currentThread->Yield();
+        
     }
 };
 

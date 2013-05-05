@@ -91,10 +91,10 @@ Thread *
 MyScheduler::FindNextToRun ()
 {
     ASSERT(kernel->interrupt->getLevel() == IntOff);
-Print();
     if (readyList->IsEmpty()) {
 	return NULL;
     } else {
+        kernel->interrupt->Schedule(this, 3, TimerInt);
     	return readyList->RemoveFront();
     }
 }
