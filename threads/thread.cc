@@ -210,7 +210,7 @@ Thread::Yield ()
 {
 
     //myHW2
-    cout << "Call Thread::Yield\n";
+    // cout << "Call Thread::Yield\n";
     // kernel->scheduler->Print();
     // cout << endl;
 
@@ -225,11 +225,12 @@ Thread::Yield ()
 
     nextThread = kernel->scheduler->FindNextToRun();
 
-    cout << "Next to run: ";
-    nextThread->Print();
-    cout << endl;
+
 
     if (nextThread != NULL) {
+        cout << "Next to run: ";
+        nextThread->Print();
+        cout << endl;
 	kernel->scheduler->ReadyToRun(this);
 	kernel->scheduler->Run(nextThread, FALSE);
     }
