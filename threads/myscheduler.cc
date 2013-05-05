@@ -24,7 +24,7 @@
 #include "main.h"
 
 int CompareThreads(Thread* x, Thread* y){
-    return ( (x->priority) > (y->priority) );
+    return ( (x->GetPriority()) > (y->GetPriority()) );
 }
 
 
