@@ -6,8 +6,8 @@
 // All rights reserved.  See copyright.h for copyright notice and limitation 
 // of liability and disclaimer of warranty provisions.
 
-#ifndef SCHEDULER_H
-#define SCHEDULER_H
+#ifndef MYSCHEDULER_H
+#define MYSCHEDULER_H
 
 #include "copyright.h"
 #include "list.h"
@@ -41,4 +41,4 @@ class MyScheduler {
     				// by the next thread that runs
 };
 
-#endif // SCHEDULER_H
+#endif // MYSCHEDULER_H
