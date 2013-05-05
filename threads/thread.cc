@@ -41,8 +41,9 @@ const int STACK_FENCEPOST = 0xdedbeef;
 
 Thread::Thread(char* threadName)
 {
-    strcpy(name, threadName);
-    cout << name << endl;
+    // strcpy(name, threadName);
+    name = threadName;
+    // cout << name << endl;
     stackTop = NULL;
     stack = NULL;
     status = JUST_CREATED;
