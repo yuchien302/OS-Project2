@@ -42,6 +42,7 @@ const int STACK_FENCEPOST = 0xdedbeef;
 Thread::Thread(char* threadName)
 {
     strcpy(name, threadName);
+    cout << name << endl;
     stackTop = NULL;
     stack = NULL;
     status = JUST_CREATED;
@@ -539,7 +540,6 @@ Thread::MyScheduling(char*ParameterFile)
     int priority, times;
     Thread* t;
     for(int i=0; i<total; i++){
-        string name;
         pin >> name >> priority >> times;
         // cout << name << " " << priority << " " << times << endl;
         t = new Thread( (char*) name.c_str() ); 
