@@ -538,7 +538,7 @@ Thread::MyScheduling(char*ParameterFile)
     pin >> timeslice >> total;
 
     CallBackObj* callback = new SchedulerRoundRobin();
-    char[50] name;
+    char name[50];
     int priority, times;
     Thread* t;
     for(int i=0; i<total; i++){
