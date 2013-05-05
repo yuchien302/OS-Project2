@@ -48,7 +48,7 @@ class MyScheduler {
 				// but not running
     Thread *toBeDestroyed;	// finishing thread to be destroyed
     				// by the next thread that runs
-    CallBackObj* callback;
+    // CallBackObj* callback;
     int timeslice;
 };
 

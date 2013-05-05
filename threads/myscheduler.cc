@@ -48,7 +48,7 @@ void
 MyScheduler::ScheduleInterrupt(char* threadName){
     // kernel->currentThread->getName()
     cout << "ScheduleInterrupt for " << threadName << " timeslice= " << timeslice << endl;
-    callback = new SchedulerRoundRobin(threadName);
+    CallBackObj* callback = new SchedulerRoundRobin(threadName);
     kernel->interrupt->Schedule(callback, timeslice, TimerInt);
 }
 
