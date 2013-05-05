@@ -221,16 +221,16 @@ Thread::Yield ()
     
     DEBUG(dbgThread, "Yielding thread: " << name);
     
-    kernel->scheduler->Print();
+    // kernel->scheduler->Print();
 
     nextThread = kernel->scheduler->FindNextToRun();
 
 
 
     if (nextThread != NULL) {
-        cout << "Next to run: ";
-        nextThread->myPrint();
-        cout << endl;
+        // cout << "Next to run: ";
+        // nextThread->myPrint();
+        // cout << endl;
 	kernel->scheduler->ReadyToRun(this);
 	kernel->scheduler->Run(nextThread, FALSE);
     }
