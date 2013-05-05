@@ -76,7 +76,6 @@ MyScheduler::ReadyToRun (Thread *thread)
 
     thread->setStatus(READY);
     readyList->Insert(thread);
-    
 
 }
 
@@ -92,7 +91,7 @@ Thread *
 MyScheduler::FindNextToRun ()
 {
     ASSERT(kernel->interrupt->getLevel() == IntOff);
-
+readyList->Print();
     if (readyList->IsEmpty()) {
 	return NULL;
     } else {
