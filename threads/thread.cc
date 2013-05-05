@@ -43,7 +43,7 @@ Thread::Thread(char* threadName)
 {
     // strcpy(name, threadName);
     name = threadName;
-    // cout << name << endl;
+    cout << name << endl;
     stackTop = NULL;
     stack = NULL;
     status = JUST_CREATED;
