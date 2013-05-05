@@ -493,21 +493,21 @@ Thread::SelfTest()
 {
     DEBUG(dbgThread, "Entering Thread::SelfTest");
 
-    Thread* t = new Thread("1"); 
-    t->SetPriority(20);
-    t->Fork((VoidFunctionPtr) SimpleThread, (void *) 1);
+    // Thread* t = new Thread("1"); 
+    // t->SetPriority(20);
+    // t->Fork((VoidFunctionPtr) SimpleThread, (void *) 1);
 
-    t = new Thread("2"); 
-    t->SetPriority(10);
-    t->Fork((VoidFunctionPtr) SimpleThread, (void *) 2);
+    // t = new Thread("2"); 
+    // t->SetPriority(10);
+    // t->Fork((VoidFunctionPtr) SimpleThread, (void *) 2);
 
-    t = new Thread("3"); 
-    t->SetPriority(30);
-    t->Fork((VoidFunctionPtr) SimpleThread, (void *) 3);
+    // t = new Thread("3"); 
+    // t->SetPriority(30);
+    // t->Fork((VoidFunctionPtr) SimpleThread, (void *) 3);
 
-    t = new Thread("4"); 
-    t->SetPriority(50);
-    t->Fork((VoidFunctionPtr) SimpleThread, (void *) 4);
+    // t = new Thread("4"); 
+    // t->SetPriority(50);
+    // t->Fork((VoidFunctionPtr) SimpleThread, (void *) 4);
 
     // t = new Thread("5"); 
     // t->SetPriority(5);
@@ -516,10 +516,10 @@ Thread::SelfTest()
     // t = new Thread("6"); 
     // t->SetPriority(10);
     // t->Fork((VoidFunctionPtr) SimpleThread, (void *) 6);
-    CallBackObj* callback = new SchedulerRoundRobin();
-    kernel->interrupt->Schedule(callback, 3, TimerInt);
+    // CallBackObj* callback = new SchedulerRoundRobin();
+    // kernel->interrupt->Schedule(callback, 3, TimerInt);
 
-    kernel->currentThread->Yield();
+    // kernel->currentThread->Yield();
 
 }
 
@@ -539,7 +539,7 @@ Thread::MyScheduling(char*ParameterFile)
     for(int i=0; i<total; i++){
         pin >> name >> priority >> times;
         // cout << name << " " << priority << " " << times << endl;
-        t = new Thread( (char *) name.c_str()); 
+        t = new Thread( (char *) i); 
         t->SetPriority(priority);
         t->SetRemainingExecutionTicks(times);
         t->Fork((VoidFunctionPtr) SimpleThread, (void *) i);
