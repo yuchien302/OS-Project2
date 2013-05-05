@@ -45,7 +45,8 @@ MyScheduler::SetTimeSlice(int t){
 
 
 void 
-MyScheduler::ScheduleInterrupt(){ 
+MyScheduler::ScheduleInterrupt(){
+    cout << "ScheduleInterrupt for " << kernel->currentThread->getName() << " timeslice= " << timeslice << endl;
     callback = new SchedulerRoundRobin(kernel->currentThread->getName());
     kernel->interrupt->Schedule(callback, timeslice, TimerInt);
 }
