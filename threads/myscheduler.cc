@@ -23,8 +23,18 @@
 #include "myscheduler.h"
 #include "main.h"
 
+//      returns -1 if x < y
+//      returns 0 if x == y
+//      returns 1 if x > y
 int CompareThreads(Thread* x, Thread* y){
-    return ( (x->GetPriority()) > (y->GetPriority()) );
+    if( (x->GetPriority()) < (y->GetPriority()) )
+        return -1;
+    if( (x->GetPriority()) == (y->GetPriority()) )
+        return 0;
+    if( (x->GetPriority()) > (y->GetPriority()) )
+        return 1;
+    
+    return 0;
 }
 
 
