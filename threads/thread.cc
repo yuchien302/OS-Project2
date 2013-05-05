@@ -489,7 +489,7 @@ public:
     int timeslice;
     void CallBack(){
         // cout << "this is callback" << endl;
-        kernel->interrupt->Schedule(this, 10, TimerInt);
+        kernel->interrupt->Schedule(this, 3, TimerInt);
     }
 };
 
@@ -533,7 +533,6 @@ Thread::SelfTest()
 void 
 Thread::MyScheduling(char*ParameterFile)
 {
-    cout << "FUKvghieufvbweiulvbhiulwv" << endl;
     ifstream pin(ParameterFile);
     int total, timeslice;
     pin >> timeslice >> total;
@@ -544,9 +543,9 @@ Thread::MyScheduling(char*ParameterFile)
     Thread* t;
     for(int i=0; i<total; i++){
         pin >> name >> priority >> times;
-        cout << name << " " << priority << " " << times << endl;
-        t = new Thread( name ); 
-        cout << "FUCK" << endl;
+        // cout << name << " " << priority << " " << times << endl;
+        t = new Thread( (char*) name.c_str() ); 
+        // cout << "FUCK" << endl;
         t->SetPriority(priority);
         // t->SetName(name);
         t->SetRemainingExecutionTicks(times);
@@ -554,7 +553,7 @@ Thread::MyScheduling(char*ParameterFile)
     }
 
 
-    kernel->interrupt->Schedule(callback, 10, TimerInt);
+    kernel->interrupt->Schedule(callback, 3, TimerInt);
     kernel->currentThread->Yield();
 
 
