@@ -26,6 +26,7 @@
 #include <iostream>
 #include <fstream>
 #include <climits>
+#include "callback.h"
 
 // this is put at the top of the execution stack, for detecting stack overflows
 const int STACK_FENCEPOST = 0xdedbeef;
@@ -466,6 +467,20 @@ SimpleThread(int which)
 //     SimpleThread(0);
 // }
 
+class SchedulerRoundRobin : public CallBackObj {
+
+public:
+
+    SchedulerRoundRobin(){
+        timeslice = 3;
+    }
+    ~SchedulerRoundRobin(){};
+    int timeslice;
+    void CallBack(){
+        kernel->interrupt->Schedule(this, timeslice, TimerInt);
+    }
+};
+
 void
 Thread::SelfTest()
 {
@@ -494,21 +509,26 @@ Thread::SelfTest()
     // t = new Thread("6"); 
     // t->SetPriority(10);
     // t->Fork((VoidFunctionPtr) SimpleThread, (void *) 6);
+    CallBackObj* callback = new SchedulerRoundRobin();
+    kernel->interrupt->Schedule(callback, 3, TimerInt);
 
     kernel->currentThread->Yield();
 
 }
 
 
+
 void 
 Thread::MyScheduling(char*ParameterFile)
 {
     ifstream pin(ParameterFile);
-    int a, b;
+    int a, b, timeslice;
+    CallBackObj* callback = new SchedulerRoundRobin();
+    // timeslice = 3;
     pin >> a >> b;
     cout << "lalala I'm fucking cool" << endl;
     cout << a << " " << b << endl;
-
+    kernel->interrupt->Schedule(callback, 3, TimerInt);
 
 
 
