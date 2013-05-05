@@ -96,7 +96,7 @@ Kernel::Initialize()
     stats = new Statistics();		// collect statistics
     interrupt = new Interrupt;		// start up interrupt handling
     scheduler = new MyScheduler();	// initialize the ready queue
-    alarm = new Alarm(randomSlice);	// start up time slicing
+    // alarm = new Alarm(randomSlice);	// start up time slicing
     machine = new Machine(debugUserProg);
     synchConsoleIn = new SynchConsoleInput(consoleIn); // input from stdin
     synchConsoleOut = new SynchConsoleOutput(consoleOut); // output to stdout
