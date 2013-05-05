@@ -99,7 +99,7 @@ void
 Thread::Fork(VoidFunctionPtr func, void *arg)
 {
     Interrupt *interrupt = kernel->interrupt;
-    Scheduler *scheduler = kernel->scheduler;
+    MyScheduler *scheduler = kernel->scheduler;
     IntStatus oldLevel;
     
     DEBUG(dbgThread, "Forking thread: " << name << " f(a): " << (int) func << " " << arg);
