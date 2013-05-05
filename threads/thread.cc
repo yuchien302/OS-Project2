@@ -412,15 +412,23 @@ Thread::RestoreUserState()
 //	purposes.
 //----------------------------------------------------------------------
 
-static void
-SimpleThread(int which)
-{
-    int num;
+// static void
+// SimpleThread(int which)
+// {
+//     int num;
     
-    for (num = 0; num < 5; num++) {
-	cout << "*** thread " << which << " looped " << num << " times\n";
-        kernel->currentThread->Yield();
-    }
+//     for (num = 0; num < 5; num++) {
+// 	cout << "*** thread " << which << " looped " << num << " times\n";
+//         kernel->currentThread->Yield();
+//     }
+// }
+
+static void
+SimpleThread(int which, int priority)
+{
+
+    cout << "*** thread " << which << " priority " << "\n";
+
 }
 
 //----------------------------------------------------------------------
@@ -429,18 +437,38 @@ SimpleThread(int which)
 //	to call SimpleThread, and then calling SimpleThread ourselves.
 //----------------------------------------------------------------------
 
+// void
+// Thread::SelfTest()
+// {
+//     DEBUG(dbgThread, "Entering Thread::SelfTest");
+
+//     Thread *t = new Thread("forked thread");
+
+//     t->Fork((VoidFunctionPtr) SimpleThread, (void *) 1);
+//     kernel->currentThread->Yield();
+//     SimpleThread(0);
+// }
+
 void
 Thread::SelfTest()
 {
     DEBUG(dbgThread, "Entering Thread::SelfTest");
 
-    Thread *t = new Thread("forked thread");
+    t = new Thread(1); 
+    t->setPriority(20);
+    t->Fork((VoidFunctionPtr) SimpleThread, (void *) 1, (void *)20);
+    
+    t = new Thread(2); 
+    t->setPriority(10);
+    t->Fork((VoidFunctionPtr) SimpleThread, (void *) 2, (void *)10);
 
-    t->Fork((VoidFunctionPtr) SimpleThread, (void *) 1);
+    t = new Thread(3); 
+    t->setPriority(30);
+    t->Fork((VoidFunctionPtr) SimpleThread, (void *) 3, (void *)30);
+
     kernel->currentThread->Yield();
-    SimpleThread(0);
-}
 
+}
 
 
 void 
@@ -451,6 +479,10 @@ Thread::MyScheduling(char*ParameterFile)
     pin >> a >> b;
     cout << "lalala I'm fucking cool" << endl;
     cout << a << " " << b << endl;
+
+
+
+
     myPrint();
     return;
 }
