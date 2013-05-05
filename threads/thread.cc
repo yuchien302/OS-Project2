@@ -539,9 +539,10 @@ Thread::MyScheduling(char*ParameterFile)
     int priority, times;
     Thread* t;
     for(int i=0; i<total; i++){
+        string name;
         pin >> name >> priority >> times;
         // cout << name << " " << priority << " " << times << endl;
-        t = new Thread( (char*)('A'+i) ); 
+        t = new Thread( (char*) name.c_str() ); 
         t->SetPriority(priority);
         // t->SetName(name);
         t->SetRemainingExecutionTicks(times);
