@@ -103,7 +103,7 @@ class Thread {
 		void CheckOverflow();   	// Check if thread stack has overflowed
 		void setStatus(ThreadStatus st) { status = st; }
 		char* getName() { return (name); }
-		void Print() { cout << name; }
+		void Print() { cout << "name: " << name  << ", priority: " << priority << endl; }
 		void SelfTest();		// test whether thread impl is working
 
 	private:
