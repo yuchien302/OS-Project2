@@ -37,7 +37,7 @@ MyScheduler::CompareThreads(Thread* x, Thread* y){
 
 MyScheduler::MyScheduler()
 { 
-    readyList = new SortedList<Thread *>(CompareThreads); 
+    readyList = new SortedList<Thread *>( &CompareThreads ); 
     toBeDestroyed = NULL;
 } 
 
