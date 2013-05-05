@@ -535,7 +535,7 @@ Thread::MyScheduling(char*ParameterFile)
     Thread* t;
     for(int i=0; i<total; i++){
         pin >> name >> priority >> times;
-        t = new Thread(name.c_str()); 
+        t = new Thread( (char *) name); 
         t->SetPriority(priority);
         t->SetRemainingExecutionTime(times);
         t->Fork((VoidFunctionPtr) SimpleThread, (void *) i);
