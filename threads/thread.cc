@@ -458,12 +458,8 @@ SimpleThread(int which)
 
         kernel->currentThread->SetRemainingExecutionTicks(remain-1);
         kernel->interrupt->OneTick();
-        
-        // cout << " priority " << kernel->currentThread->GetPriority() << endl;
-        // kernel->currentThread->Yield();
     }
-    // kernel->currentThread->Yield();
-    // kernel->currentThread->Yield();
+
 }
 
 //----------------------------------------------------------------------
@@ -490,34 +486,6 @@ void
 Thread::SelfTest()
 {
     DEBUG(dbgThread, "Entering Thread::SelfTest");
-
-    // Thread* t = new Thread("1"); 
-    // t->SetPriority(20);
-    // t->Fork((VoidFunctionPtr) SimpleThread, (void *) 1);
-
-    // t = new Thread("2"); 
-    // t->SetPriority(10);
-    // t->Fork((VoidFunctionPtr) SimpleThread, (void *) 2);
-
-    // t = new Thread("3"); 
-    // t->SetPriority(30);
-    // t->Fork((VoidFunctionPtr) SimpleThread, (void *) 3);
-
-    // t = new Thread("4"); 
-    // t->SetPriority(50);
-    // t->Fork((VoidFunctionPtr) SimpleThread, (void *) 4);
-
-    // t = new Thread("5"); 
-    // t->SetPriority(5);
-    // t->Fork((VoidFunctionPtr) SimpleThread, (void *) 5);
-
-    // t = new Thread("6"); 
-    // t->SetPriority(10);
-    // t->Fork((VoidFunctionPtr) SimpleThread, (void *) 6);
-    // CallBackObj* callback = new SchedulerRoundRobin();
-    // kernel->interrupt->Schedule(callback, 3, TimerInt);
-
-    // kernel->currentThread->Yield();
 
 }
 
