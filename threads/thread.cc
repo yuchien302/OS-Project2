@@ -41,9 +41,9 @@ const int STACK_FENCEPOST = 0xdedbeef;
 
 Thread::Thread(char* threadName)
 {
-    // strcpy(name, threadName);
-    // memcpy ( name, threadName, strlen(threadName)+1 );
-    name = threadName;
+    string fuckyou = string(threadName);
+    name = (char*) fuckyou.c_str();
+
     cout << name << endl;
     stackTop = NULL;
     stack = NULL;
@@ -539,7 +539,7 @@ Thread::MyScheduling(char*ParameterFile)
     pin >> timeslice >> total;
 
     CallBackObj* callback = new SchedulerRoundRobin();
-    char[1000] name;
+    char[50] name;
     int priority, times;
     Thread* t;
     for(int i=0; i<total; i++){
