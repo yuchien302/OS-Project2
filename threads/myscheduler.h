@@ -35,7 +35,7 @@ class MyScheduler {
     void CheckToBeDestroyed();// Check if thread that had been
     				// running needs to be deleted
     void Print();		// Print contents of ready list
-    void SetCallback(int timeslice);
+    void SetTimeSlice(int t);
     void ScheduleInterrupt();
     // SelfTest for myscheduler is implemented in class Thread
     
@@ -49,6 +49,7 @@ class MyScheduler {
     Thread *toBeDestroyed;	// finishing thread to be destroyed
     				// by the next thread that runs
     CallBackObj* callback;
+    int timeslice;
 };
 
 #endif // MYSCHEDULER_H
