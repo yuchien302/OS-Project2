@@ -36,7 +36,8 @@ class SchedulerRoundRobin : public CallBackObj {
         int timeslice;
         void setName(char* threadName){  name = string(threadName); }
         void CallBack(){
-            if(name == string(kernel->currentThread->getName()) ){
+            if(name == string(kernel->currentThread->getName()) && 
+                kernal->currentThread->GetPriority() != GetNextPriority()){
                 // cout << "this is callback" << endl;
                 kernel->interrupt->Schedule(this, timeslice, TimerInt);
                 kernel->interrupt->YieldOnReturn();
@@ -57,6 +58,12 @@ MyScheduler::ScheduleInterrupt(){
     CallBackObj* callback = new SchedulerRoundRobin(timeslice);
     ((SchedulerRoundRobin*) callback)->setName(threadName);
     kernel->interrupt->Schedule(callback, timeslice, TimerInt);
+}
+
+int 
+MyScheduler::GetNextPriority(){
+    return readyList->Front()->GetPriority();
+
 }
 
 

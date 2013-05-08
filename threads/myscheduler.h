@@ -37,6 +37,7 @@ class MyScheduler {
     void Print();		// Print contents of ready list
     void SetTimeSlice(int t);
     void ScheduleInterrupt();
+    int GetNextPriority();
     // SelfTest for myscheduler is implemented in class Thread
     
 
