@@ -163,7 +163,7 @@ Thread::Begin ()
     kernel->scheduler->CheckToBeDestroyed();
     kernel->interrupt->Enable();
 
-    
+    kernel->scheduler->ScheduleInterrupt();
 
 }
 
@@ -513,7 +513,7 @@ Thread::MyScheduling(char*ParameterFile)
 
 
     kernel->scheduler->SetTimeSlice(timeslice);
-    kernel->scheduler->ScheduleInterrupt("123");
+    // kernel->scheduler->ScheduleInterrupt("123");
     kernel->currentThread->Yield();
 
 
