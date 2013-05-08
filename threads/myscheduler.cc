@@ -202,7 +202,7 @@ MyScheduler::Run (Thread *nextThread, bool finishing)
 	oldThread->space->RestoreState();
     }
 
-    // ScheduleInterrupt();
+    ScheduleInterrupt();
 }
 
 //----------------------------------------------------------------------

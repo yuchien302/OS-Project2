@@ -163,7 +163,7 @@ Thread::Begin ()
     kernel->scheduler->CheckToBeDestroyed();
     kernel->interrupt->Enable();
 
-    kernel->scheduler->ScheduleInterrupt();
+
 
 }
 
