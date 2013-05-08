@@ -36,7 +36,7 @@ class MyScheduler {
     				// running needs to be deleted
     void Print();		// Print contents of ready list
     void SetTimeSlice(int t);
-    void ScheduleInterrupt(char* threadName);
+    void ScheduleInterrupt();
     // SelfTest for myscheduler is implemented in class Thread
     
 
