@@ -513,6 +513,7 @@ Thread::MyScheduling(char*ParameterFile)
 
 
     kernel->scheduler->SetTimeSlice(timeslice);
+    kernel->scheduler->ScheduleInterrupt("123");
     kernel->currentThread->Yield();
 
 
