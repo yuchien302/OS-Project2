@@ -39,7 +39,7 @@ class SchedulerRoundRobin : public CallBackObj {
             if(name == string(kernel->currentThread->getName()) && 
                 kernel->currentThread->GetPriority() == kernel->scheduler->GetNextPriority()){
                 // cout << "this is callback" << endl;
-                kernel->interrupt->Schedule(this, timeslice, TimerInt);
+                // kernel->interrupt->Schedule(this, timeslice, TimerInt);
                 kernel->interrupt->YieldOnReturn();
             }
         }
