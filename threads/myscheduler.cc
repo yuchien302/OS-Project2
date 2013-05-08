@@ -39,7 +39,7 @@ class SchedulerRoundRobin : public CallBackObj {
             if(name == string(kernel->currentThread->getName()) ){
                 cout << "this is callback" << endl;
                 kernel->interrupt->Schedule(this, timeslice, TimerInt);
-                kernel->currentThread->YieldOnReturn();
+                kernel->interrupt->YieldOnReturn();
             }
         }
 };
