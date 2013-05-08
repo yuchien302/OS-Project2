@@ -175,7 +175,7 @@ MyScheduler::Run (Thread *nextThread, bool finishing)
 
     kernel->currentThread = nextThread;  // switch to the next thread
     nextThread->setStatus(RUNNING);      // nextThread is now running
-    
+    ScheduleInterrupt();
 
     DEBUG(dbgThread, "Switching from: " << oldThread->getName() << " to: " << nextThread->getName());
     
@@ -202,7 +202,7 @@ MyScheduler::Run (Thread *nextThread, bool finishing)
 	oldThread->space->RestoreState();
     }
 
-    ScheduleInterrupt();
+    
 }
 
 //----------------------------------------------------------------------
