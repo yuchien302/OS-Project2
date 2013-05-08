@@ -1,0 +1,26 @@
+B 3
+B 2
+B 1
+A 7
+A 6
+A 5
+D 4
+D 3
+D 2
+A 4
+A 3
+A 2
+D 1
+A 1
+C 5
+C 4
+C 3
+C 2
+C 1
+Machine halting!
+
+Ticks: total 19, idle 0, system 19, user 0
+Disk I/O: reads 0, writes 0
+Console I/O: reads 0, writes 0
+Paging: faults 0
+Network I/O: packets received 0, sent 0
